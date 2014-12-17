@@ -1,10 +1,11 @@
-# Evolve_defence
+# Evolve Defence
 
 遺伝的アルゴリズムによって敵がルートを賢く選んで進むタワーディフェンスを作りたかった
 
 ## 実際にお手にとってお試しください
 
     git clone git@github.com:vivit-jc/evolve_defence.git
+    cd evolve_defence
     ruby main.rb
 
 ## 結果表示の見方
