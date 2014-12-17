@@ -4,10 +4,9 @@
 
 ## 実際にお手にとってお試しください
 
-`
 git clone git@github.com:vivit-jc/evolve_defence.git
+
 ruby main.rb
-`
 
 ## 結果表示の見方
 
