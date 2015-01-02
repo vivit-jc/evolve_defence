@@ -13,10 +13,15 @@ class Evolution
 
     ret_pool = []
     ret_pool.push pool[0]
-    ret_pool.push pool[1]
+    ret_pool.push [pool[1],pool[1],pool[2],pool[2],pool[3],pool[3]].sample
     ret_pool.push [
       pool[2],pool[2],pool[2],pool[2],pool[3],pool[3],pool[3],pool[4],pool[4],pool[5]
       ].sample
+    while(ret_pool[1] == ret_pool[2])
+      ret_pool[2] = [
+      pool[1],pool[1],pool[2],pool[2],pool[3],pool[4],pool[5],pool[6]
+      ].sample
+    end
 
     return ret_pool
   end
@@ -30,7 +35,7 @@ class Evolution
   end
 
   def self.mutant(monster)
-    rand(1..3).times do
+    rand(3..8).times do
       monster.action[rand(0..STEP-1)] = [:u,:d,:r,:l].sample
     end
     return monster

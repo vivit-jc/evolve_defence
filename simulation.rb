@@ -13,18 +13,10 @@ class Simulation
 
   def step
     return if(finished?)
-    @map.each_with_index do |x,i|
-      x.each_with_index do |y,j|
-        case y
-        when 1
-          if(@monster.x == i && @monster.y == j)
-            @monster.hp -= 2
-          end
-        when 2
-          if(@monster.x >= i-1 && @monster.x <= i+1 && @monster.y >= j-1 && @monster.y <= j+1)
-            @monster.hp -= 1
-          end
-        end
+    [@monster.x-1,@monster.x,@monster.x+1].each do |x|
+      [@monster.y-1,@monster.y,@monster.y+1].each do |y|
+        next if(x > 14 || x < 0 || y > 14 || y < 0 )
+        @monster.hp -= 1 if(@map[x][y] == 1)
       end
     end
     return if(@monster.hp <= 0)
@@ -42,6 +34,7 @@ class Simulation
     @monster.x = 14 if(@monster.x > 14)
     @monster.y = 0 if(@monster.y < 0)
     @monster.y = 14 if(@monster.y > 14)
+    @monster.hp -= 2 if(@map[@monster.x][@monster.y] == 2)
     @map[@monster.x][@monster.y] = 0
     @turn += 1
   end

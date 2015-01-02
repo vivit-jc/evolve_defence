@@ -14,7 +14,11 @@ attr_accessor :x,:y,:hp,:action
   end
 
   def score
-    (18 - Math.sqrt(((@x-GOAL_X)*(@x-GOAL_X)+@y*@y).to_f))*3+@hp
+    (18 - distance)*3+@hp
+  end
+
+  def distance
+    Math.sqrt(((@x-GOAL_X)*(@x-GOAL_X)+@y*@y).to_f)
   end
 
 end
